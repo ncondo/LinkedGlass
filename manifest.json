@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "LinkedGlass",
+  "description": "Shows a company's glassdoor rating and link to their
+    glassdoor page while searching LinkedIn jobs.",
+  "version": "1.0",
+  "author": "Nicholas Condo",
+  "default_locale": "en",
+
+  "page_action": {
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    },
+    "default_title": "glassdoor"
+  },
+
+  "permissions": [
+    "tabs",
+    "https://api.glassdoor.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/vsearch/*"],
+      "css": ["popup.css"],
+      "js": ["main.js"]
+    }
+  ]
+
+}
