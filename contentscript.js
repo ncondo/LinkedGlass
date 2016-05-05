@@ -99,7 +99,7 @@ function appendDisplay() {
     "powered by  <img id='gd-image' src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' " +
     "title='Job Search' /></a></div></div>";
 
-  document.getElementById('top-header').appendChild(display);
+  document.getElementById('header-banner').appendChild(display);
 }
 
 // show the Glassdoor data in the display
@@ -115,7 +115,7 @@ getIP();
 
 // extract the company name from html to get glassdoor data
 var getCompanyName = function() {
-  var link = this.getElementsByTagName("a");
+  var link = this.getElementsByTagName("span");
   var companyName = link[0].textContent;
   if (typeof(companyName) !== "undefined") {
     glassData(companyName);
@@ -123,7 +123,7 @@ var getCompanyName = function() {
 };
 
 // get company name when mouse enters the div
-var companyDivs = document.querySelectorAll(".description bdi");
+var companyDivs = document.querySelectorAll(".company-name-link");
 for (var i = 0; i < companyDivs.length; i++) {
   companyDivs[i].addEventListener("mouseenter", getCompanyName, false);
 }
