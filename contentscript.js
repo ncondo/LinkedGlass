@@ -50,7 +50,7 @@ function glassData(companyName) {
   } else {
     // construct the url to access Glassdoor api
     var url = "https://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=47052" + 
-       "&t.k=jx81AhIrSE7&action=employers&userip=" + userIP + "&useragent=" +
+       "&t.k=" + gd_key + "=employers&userip=" + userIP + "&useragent=" +
        navigator.userAgent + "&q=" + companyName;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);

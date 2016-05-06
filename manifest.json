@@ -14,7 +14,7 @@
     {
       "matches": ["https://www.linkedin.com/jobs/search?*"],
       "css": ["content.css"],
-      "js": ["contentscript.js"],
+      "js": ["config.js", "contentscript.js"],
       "run_at": "document_end"
     }
   ],
