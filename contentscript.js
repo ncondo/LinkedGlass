@@ -104,7 +104,6 @@ function appendDisplay() {
 
 // show the Glassdoor data in the display
 function renderData(companyName, rating, link) {
-  
   document.getElementById('gd-company-name').textContent = companyName;
   document.getElementById('gd-company-rating').textContent = rating;
   document.getElementById('gd-company-link').innerHTML = link;
@@ -115,47 +114,15 @@ getIP();
 
 // extract the company name from html to get glassdoor data
 var getCompanyName = function() {
-  var link = this.getElementsByTagName("span");
-  var companyName = link[0].textContent;
+  var companySpan = this.getElementsByTagName("span");
+  var companyName = companySpan[0].textContent;
   if (typeof(companyName) !== "undefined") {
     glassData(companyName);
   }
 };
 
 // get company name when mouse enters the div
-var companyDivs = document.querySelectorAll(".company-name-link");
+var companyDivs = document.querySelectorAll(".company-name");
 for (var i = 0; i < companyDivs.length; i++) {
   companyDivs[i].addEventListener("mouseenter", getCompanyName, false);
-}
-
-// refresh DOM when new page is clicked
-var newPage = document.querySelectorAll(".pagination a");
-for (var i = 0; i < newPage.length; i++) {
-  newPage[i].addEventListener("click", function() {
-    window.location.reload();
-  });
-}
-
-// refresh DOM when new search is initiated
-var newSearch = document.querySelectorAll(".submit-advs");
-for (var i = 0; i < newSearch.length; i++) {
-  newSearch[i].addEventListener("click", function() {
-    window.location.reload();
-  });
-}
-
-// refresh DOM when additional criteria is added by selecting side checkboxes
-var refineSearch = document.querySelectorAll(".facet-value");
-for (var i = 0; i < refineSearch.length; i++) {
-  refineSearch[i].addEventListener("click", function() {
-      window.location.reload();
-  });
-}
-
-// refresh DOM when search criteria are removed via "pivot-bar"
-var removedCriteria = document.querySelectorAll(".pivot");
-for (var i = 0; i < removedCriteria.length; i++) {
-  removedCriteria[i].addEventListener("click", function() {
-    window.location.reload();
-  });
 }
