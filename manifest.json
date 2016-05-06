@@ -3,7 +3,7 @@
 
   "name": "LinkedGlass",
   "description": "View a company's Glassdoor rating while searching LinkedIn jobs",
-  "version": "1.0",
+  "version": "1.0.3",
   "author": "Nicholas Condo",
 
   "icons": { "48": "lg_icon48.png",
