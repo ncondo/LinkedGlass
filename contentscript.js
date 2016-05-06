@@ -92,7 +92,7 @@ function glassData(companyName) {
 function appendDisplay() {
   var display = document.createElement("div");
   display.innerHTML = "<div class='gd-display-wrapper'><div id='linked-glass'>" +
-    "<center><p>LinkedGlass</p><center></div></ br><div id='gd-info-label'>" +
+    "<center><p style='color: #7CB228;'>LinkedGlass</p><center></div></ br><div id='gd-info-label'>" +
     "<p>Company: <span id='gd-company-name'></span></p><p>Rating: " +
     "<span id='gd-company-rating'></span></p><p id='gd-company-link'></p></div>" +
     "</ br><div id='gd-logo'><a href='https://www.glassdoor.com/index.htm' target='_blank'>" +
