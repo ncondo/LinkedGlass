@@ -128,4 +128,15 @@ window.onload = function() {
   for (var i = 0; i < companyDivs.length; i++) {
     companyDivs[i].addEventListener("mouseenter", getCompanyName, false);
   }
+
+  // reload dom after navigating to a different page
+  var newPage = document.querySelectorAll(".search-results-pagination a");
+  for (var i = 0; i < newPage.length; i++) {
+    newPage[i].addEventListener("click", function(){window.location.reload(true)});
+  }
 }
+
+
+
+
+
