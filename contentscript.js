@@ -24,6 +24,7 @@ function getIP() {
     } else {
       userIP = randomIP();
     }
+    return userIP;
   };
   xhr.send();
 }
@@ -50,7 +51,7 @@ function glassData(companyName) {
   } else {
     // construct the url to access Glassdoor api
     var url = "https://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=47052" + 
-       "&t.k=" + gd_key + "=employers&userip=" + userIP + "&useragent=" +
+       "&t.k=" + gd_key + "=employers&userip=" + getIP() + "&useragent=" +
        navigator.userAgent + "&q=" + companyName;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
@@ -110,7 +111,6 @@ function renderData(companyName, rating, link) {
 }
 
 appendDisplay();
-getIP();
 
 // extract the company name from html to get glassdoor data
 var getCompanyName = function() {
@@ -121,8 +121,11 @@ var getCompanyName = function() {
   }
 };
 
-// get company name when mouse enters the div
-var companyDivs = document.querySelectorAll(".company-name");
-for (var i = 0; i < companyDivs.length; i++) {
-  companyDivs[i].addEventListener("mouseenter", getCompanyName, false);
+// make sure the scripts finish before adding event listeners (dynamic page)
+window.onload = function() {
+  // get company name when mouse enters the div
+  var companyDivs = document.querySelectorAll(".company-name");
+  for (var i = 0; i < companyDivs.length; i++) {
+    companyDivs[i].addEventListener("mouseenter", getCompanyName, false);
+  }
 }
