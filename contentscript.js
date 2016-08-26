@@ -110,33 +110,14 @@ function renderData(companyName, rating, link) {
   document.getElementById('gd-company-link').innerHTML = link;
 }
 
+// append the LinkedGlass window to the LinkedIn page's banner
 appendDisplay();
 
-// extract the company name from html to get glassdoor data
-var getCompanyName = function() {
+// extract company name and pass to glassData to show glassdoor data
+$(document).on('mouseenter', '.company-name', function() {
   var companySpan = this.getElementsByTagName("span");
   var companyName = companySpan[0].textContent;
   if (typeof(companyName) !== "undefined") {
     glassData(companyName);
   }
-};
-
-// make sure the scripts finish before adding event listeners (dynamic page)
-window.onload = function() {
-  // get company name when mouse enters the div
-  var companyDivs = document.querySelectorAll(".company-name");
-  for (var i = 0; i < companyDivs.length; i++) {
-    companyDivs[i].addEventListener("mouseenter", getCompanyName, false);
-  }
-
-  // reload dom after navigating to a different page
-  var newPage = document.querySelectorAll(".search-results-pagination a");
-  for (var i = 0; i < newPage.length; i++) {
-    newPage[i].addEventListener("click", function(){window.location.reload(true)});
-  }
-}
-
-
-
-
-
+});
